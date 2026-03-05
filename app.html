@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>AI APP</title>
+</head>
+
+<body>
+
+<h2>AI TOOL</h2>
+
+<textarea id="input"></textarea>
+
+<button onclick="runAI()">
+Chạy AI
+</button>
+
+<div id="result"></div>
+
+<script>
+
+function runAI(){
+
+let text = document.getElementById("input").value
+
+document.getElementById("result").innerText =
+"AI đang xử lý: " + text
+
+}
+
+</script>
+
+</body>
+
+</html>
