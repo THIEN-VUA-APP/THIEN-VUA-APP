@@ -37,6 +37,14 @@ padding:15px 30px;
 font-size:18px;
 margin:20px;
 cursor:pointer;
+border-radius:8px;
+border:none;
+background:#ff3c00;
+color:white;
+}
+
+button:hover{
+background:#ff6a00;
 }
 
 </style>
@@ -45,22 +53,90 @@ cursor:pointer;
 
 <body>
 
+<button onclick="loginGoogle()">Đăng nhập Gmail</button>
+
 <h1>THIỆN VUA APP STORE</h1>
 
 <button onclick="openApp('poster')">AI TẠO POSTER</button>
 <button onclick="openApp('chat')">AI CHATBOT</button>
 <button onclick="openApp('video')">AI VIDEO</button>
 
-<div class="app-box" id="appFrame"></div>
+<div class="app-box">
+<div id="appFrame"></div>
+</div>
 
-<script>
+<script type="module">
 
-function openApp(app){
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+
+const firebaseConfig = {
+
+apiKey: "DÁN_API_KEY_CỦA_XẾP",
+
+authDomain: "PROJECT.firebaseapp.com",
+
+projectId: "PROJECT",
+
+storageBucket: "PROJECT.appspot.com",
+
+messagingSenderId: "ID",
+
+appId: "APP_ID"
+
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth();
+
+
+function loginGoogle(){
+
+const provider = new GoogleAuthProvider();
+
+signInWithPopup(auth, provider)
+
+.then((result)=>{
+
+alert("Đăng nhập thành công");
+
+})
+
+.catch((error)=>{
+
+console.log(error);
+
+});
+
+}
+
+
+window.loginGoogle = loginGoogle;
+
+
+window.openApp = function(type){
 
 let url="";
 
-if(app==="poster"){
-url="https://ai.studio/apps/drive/1DgoJx76uWDXO5lVP983fRt1PzEFeSdGc?fullscreenApplet=true";
+if(type=="poster"){
+
+url="https://your-poster-app.com";
+
+}
+
+if(type=="chat"){
+
+url="https://chat.openai.com";
+
+}
+
+if(type=="video"){
+
+url="https://runwayml.com";
+
 }
 
 document.getElementById("appFrame").innerHTML =
@@ -71,4 +147,5 @@ document.getElementById("appFrame").innerHTML =
 </script>
 
 </body>
+
 </html>
