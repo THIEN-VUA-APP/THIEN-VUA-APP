@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: "Inter", sans-serif;
+  --font-display: "Playfair Display", serif;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: var(--font-sans);
+}
+
+.gold-text {
+  background: linear-gradient(to right, #C9A24D, #F7E7B4, #C9A24D);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(201, 162, 77, 0.2);
+}
