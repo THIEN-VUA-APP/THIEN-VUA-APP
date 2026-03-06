@@ -1,50 +1,13 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-
-<title>THIỆN VUA AI APP</title>
-
-<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
-
-</head>
-
-<body>
-
-<h1>THIỆN VUA AI APP</h1>
-
-<button onclick="loginGoogle()">
-Đăng nhập bằng Gmail
-</button>
-
-<script>
-
-const firebaseConfig = {
-apiKey: "AIzaSyB373hVDOy2eH7XdyB3VZ_wXET1Rno0BOM",
-authDomain: "thien-vua-app.firebaseapp.com",
-projectId: "thien-vua-app",
-appId: "1:776953179471:web:d2a676aa5bed179794293a"
-};
-
-firebase.initializeApp(firebaseConfig);
-
-function loginGoogle(){
-
-const provider = new firebase.auth.GoogleAuthProvider();
-
-firebase.auth().signInWithPopup(provider)
-
-.then((result)=>{
-
-window.location.href="dashboard.html"
-
-})
-
-}
-
-</script>
-
-</body>
-
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Google AI Studio App</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
+
